@@ -71,7 +71,7 @@ D:\Qt\6.8.0\mingw_64\bin\uic.exe
 
 在 CLion 中创建新的项目，选择 `Qt微件可执行文件(Qt Widgets Executable)`，Qt版本选择6，C++版本选择17。
 
-`Qt CMake 路径`填入版本号文件夹下的 `MinGW` 工具。例如：
+`Qt CMake 前缀路径`填入版本号文件夹下的 `MinGW` 工具。例如：
 
 ```
 D:\Qt\6.8.0\mingw_64
