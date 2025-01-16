@@ -1,3 +1,4 @@
 # Qt-Learning
 
-Qt学习项目
+基于Clion开发环境的Qt学习项目
+
