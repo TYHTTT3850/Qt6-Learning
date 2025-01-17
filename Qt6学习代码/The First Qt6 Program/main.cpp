@@ -15,5 +15,5 @@ int main(int argc, char *argv[]) {
     w.show();
 
     //让应用程序对象进入事件循环，让程序不会一闪而过
-    return a.exec();
+    return QApplication::exec();
 }
