@@ -1,5 +1,5 @@
 //此文件由 mywidget.ui 呗 UIC 编译后产生的文件。
-//这个文件定义了Ui窗口类
+//这个文件定义了窗口Ui类
 
 #ifndef UI_MYWIDGET_H
 #define UI_MYWIDGET_H
