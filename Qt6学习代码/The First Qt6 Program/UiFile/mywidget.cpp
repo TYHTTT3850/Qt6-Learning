@@ -1,4 +1,4 @@
-//此文件是Ui文件mywidget.ui被UIC编译后生成的文件
+//此文件是对应于 mywidget.h 的源程序文件
 
 #include "mywidget.h"
 #include "ui_myWidget.h"
