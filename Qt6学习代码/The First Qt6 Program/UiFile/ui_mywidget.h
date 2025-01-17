@@ -1,10 +1,5 @@
-/********************************************************************************
-** Form generated from reading UI file 'mywidget.ui'
-**
-** Created by: Qt User Interface Compiler version 6.8.0
-**
-** WARNING! All changes made in this file will be lost when recompiling UI file!
-********************************************************************************/
+//此文件由 mywidget.ui 呗 UIC 编译后产生的文件。
+//这个文件定义了Ui窗口类
 
 #ifndef UI_MYWIDGET_H
 #define UI_MYWIDGET_H
