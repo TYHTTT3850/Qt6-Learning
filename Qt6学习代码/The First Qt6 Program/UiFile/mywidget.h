@@ -7,7 +7,7 @@
 
 #include <QWidget> //包含 QWidget 窗口类头文件
 
-
+//声明一个名字空间，包含一个类 myWidget。这个类不是此文件中定义的，而是在ui_mywidget.h文件中定义的的。
 QT_BEGIN_NAMESPACE
 namespace Ui { class myWidget; }
 QT_END_NAMESPACE
