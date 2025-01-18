@@ -1,4 +1,4 @@
-# Qt6-Learning
+# Clion Qt6 开发环境的配置
 
 基于 CLion 开发环境的 Qt6 学习项目
 
