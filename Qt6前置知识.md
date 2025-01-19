@@ -32,7 +32,7 @@
 
 ```cpp
 
-static QMetaObject::Connection QObject::connect(const QObject *sender, const char *signal, const QObject *receiver, const char *method, Qt::ConnectionType type = Qt::AutoConnection)
+static QMetaObject::Connection QObject::connect(const QObject *sender, const char *signal, const QObject *receiver, const char *method, Qt::ConnectionType type = Qt::AutoConnection);
 
 ```
 
@@ -58,7 +58,7 @@ connect(sender, SIGNAL(signal()), receiver, SLOT(slot()));
 另一种参数形式的静态函数 `QObject::connect()` 的原型是：
 ```cpp
 
-static QMetaObject::Connection QObject::connect(const QObject *sender, const QMetaMethod &signal, const QObject *receiver, const QMetaMethod &method, Qt::ConnectionType type = Qt::AutoConnection)
+static QMetaObject::Connection QObject::connect(const QObject *sender, const QMetaMethod &signal, const QObject *receiver, const QMetaMethod &method, Qt::ConnectionType type = Qt::AutoConnection);
 
 ```
 
@@ -86,7 +86,7 @@ connect(sender, &signal, receiver, &slot);
 
 ```cpp
 
-QMetaObject::Connection QObject::connect(const QObject *sender, const char *signal, const char *method, Qt::ConnectionType type = Qt::AutoConnection)
+QMetaObject::Connection QObject::connect(const QObject *sender, const char *signal, const char *method, Qt::ConnectionType type = Qt::AutoConnection);
 
 ```
 
@@ -115,7 +115,7 @@ this->connect(sender, SIGNAL(signal()), SLOT(slot()));
 
 ```cpp
 
-connect(sender, SIGNAL(signal_1()), receiver, SIGNAL(signal_2()))
+connect(sender, SIGNAL(signal_1()), receiver, SIGNAL(signal_2()));
 
 ```
 
