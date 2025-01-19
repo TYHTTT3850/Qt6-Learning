@@ -71,6 +71,18 @@ connect(sender, &signal, receiver, &slot);
 
 ```
 
+不管是哪种参数形式的connect()函数，最后都有一个参数type，它是枚举类型Qt::ConnectionType，
+默认值为Qt::AutoConnection。 枚举类型Qt::ConnectionType 表示信号与槽的关联方式， 有以下几种取值：
+
+1、 `Qt::AutoConnection` (默认值)：如果信号的接收者与发射者在同一个线程中，就使用 `Qt::DirectConnection` 方式，否则使用 `Qt::QueuedConnection` 方式，在信号发射时自动确定关联方式。
+
+2、`Qt::DirectConnection` ：信号被发射时槽函数立即运行，槽函数与信号在同一个线程中。
+
+3、`Qt::QueuedConnection` ：在事件循环回到接收者线程后运行槽函数，槽函数与信号在不同的线程中。
+
+4、`Qt::BlockingQueuedConnection` ：与 `Qt::QueuedConnection` 相似，区别是信号线程会阻塞，
+直到槽函数运行完毕。当信号与槽函数在同一个线程中时绝对不能使用这种方式，否则会造成死锁。
+
 信号和槽函数的连接有以下几个规则：
 
 1、一个信号可以连接多个槽函数。当一个信号与多个槽函数关联时，槽函数按照建立连接时的顺序依次运行。
