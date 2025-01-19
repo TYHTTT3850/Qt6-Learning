@@ -95,14 +95,14 @@ QMetaObject::Connection QObject::connect(const QObject *sender, const char *sign
 
 ```cpp
 
-connect(spinNum, SIGNAL(valueChanged(int)), this, SLOT(updateStatus(int)));
+connect(sender, SIGNAL(signal()), this, SLOT(slot()));
 
 ```
 如果使用成员函数 `connect()` ，就可以写成如下的语句：
 
 ```cpp
 
-this->connect(spinNum, SIGNAL(valueChanged(int)), SLOT(updateStatus(int)));
+this->connect(sender, SIGNAL(signal()), SLOT(slot()));
 
 ```
 
