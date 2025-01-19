@@ -27,17 +27,17 @@
 
 ### `connect()` 函数
 
-信号与槽关联是用函数 `QObject::connect()` 实现的，connect()有一种成员函数形式，还有多种静态函数形式。一般使用静态函数形式。
+信号与槽关联是用函数 `QObject::connect()` 实现的，`connect()` 有一种成员函数形式，还有多种静态函数形式。一般使用静态函数形式。
 
-静态函数QObject::connect()有多种参数形式，其中一种参数形式的函数原型是：
+静态函数 `QObject::connect()` 有多种参数形式，其中一种参数形式的函数原型是：
 
 ```cpp
 
-QMetaObject::Connection QObject::connect(const QObject *sender, const char *signal, const QObject *receiver, const char *method, Qt::ConnectionType type = Qt::AutoConnection)
+static QMetaObject::Connection QObject::connect(const QObject *sender, const char *signal, const QObject *receiver, const char *method, Qt::ConnectionType type = Qt::AutoConnection)
 
 ```
 
-使用这种参数形式的connect()函数进行信号与槽函数的连接时，一般用法如下：
+使用这种参数形式的 `connect()` 函数进行信号与槽函数的连接时，一般用法如下：
 
 ```cpp
 
@@ -45,7 +45,7 @@ QObject::connect(sender, SIGNAL(signal()), receiver, SLOT(slot()));
 
 ```
 
-connect()是 QObject 类的一个静态函数，而 QObject 是大部分 Qt 类的基类，在实际调用时可
+`connect()` 是 QObject 类的一个静态函数，而 QObject 是大部分 Qt 类的基类，在实际调用时可
 以忽略前面的限定符部分，所以可以直接写为：
 
 ```cpp
@@ -56,10 +56,10 @@ connect(sender, SIGNAL(signal()), receiver, SLOT(slot()));
 
 其中，`sender` 是发射信号的对象的名称；`signal()` 是信号，有参数时还需要指明各参数类型，但不用指明参数名称；`receiver` 是接收信号的对象的名称；`slot()` 是槽函数，有参数时还需要指明各参数类型，但不用指明参数名称。`SIGNAL` 和 `SLOT` 是 Qt 的宏，分别用于指明信号和槽函数。
 
-另一种参数形式的静态函数QObject::connect()的原型是：
+另一种参数形式的静态函数 `QObject::connect()` 的原型是：
 ```cpp
 
-QMetaObject::Connection QObject::connect(const QObject *sender, const QMetaMethod &signal, const QObject *receiver, const QMetaMethod &method, Qt::ConnectionType type = Qt::AutoConnection)
+static QMetaObject::Connection QObject::connect(const QObject *sender, const QMetaMethod &signal, const QObject *receiver, const QMetaMethod &method, Qt::ConnectionType type = Qt::AutoConnection)
 
 ```
 
@@ -71,8 +71,8 @@ connect(sender, &signal, receiver, &slot);
 
 ```
 
-不管是哪种参数形式的connect()函数，最后都有一个参数type，它是枚举类型Qt::ConnectionType，
-默认值为Qt::AutoConnection。 枚举类型Qt::ConnectionType 表示信号与槽的关联方式， 有以下几种取值：
+不管是哪种参数形式的 `connect()` 函数，最后都有一个参数 `type` ，它是枚举类型 `Qt::ConnectionType` ，
+默认值为 `Qt::AutoConnection` 。枚举类型 `Qt::ConnectionType` 表示信号与槽的关联方式， 有以下几种取值：
 
 1、 `Qt::AutoConnection` (默认值)：如果信号的接收者与发射者在同一个线程中，就使用 `Qt::DirectConnection` 方式，否则使用 `Qt::QueuedConnection` 方式，在信号发射时自动确定关联方式。
 
@@ -82,6 +82,29 @@ connect(sender, &signal, receiver, &slot);
 
 4、`Qt::BlockingQueuedConnection` ：与 `Qt::QueuedConnection` 相似，区别是信号线程会阻塞，
 直到槽函数运行完毕。当信号与槽函数在同一个线程中时绝对不能使用这种方式，否则会造成死锁。
+
+还有一个作为 QObject 成员函数的 `connect()` ，其函数原型定义如下：
+
+```cpp
+
+QMetaObject::Connection QObject::connect(const QObject *sender, const char *signal, const char *method, Qt::ConnectionType type = Qt::AutoConnection)
+
+```
+
+这个函数里没有表示接收者的参数，接收者就是对象自身。例如，使用静态函数 `connect()` 设置连接的一条语句如下：
+
+```cpp
+
+connect(spinNum, SIGNAL(valueChanged(int)), this, SLOT(updateStatus(int)));
+
+```
+如果使用成员函数 `connect()` ，就可以写成如下的语句：
+
+```cpp
+
+this->connect(spinNum, SIGNAL(valueChanged(int)), SLOT(updateStatus(int)));
+
+```
 
 信号和槽函数的连接有以下几个规则：
 
