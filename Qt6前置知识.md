@@ -44,7 +44,7 @@ QObject::connect(sender, SIGNAL(signal()), receiver, SLOT(slot()));
 
 ```
 
-`connect()` 是 QObject 类的一个静态函数，而 QObject 是大部分 Qt 类的基类，在实际调用时可
+`connect()` 是 QObject 类的一个静态函数，而 QObject 是大部分 Qt 类的基类，实际上，在类中调用静态函数时可
 以忽略前面的限定符部分，所以可以直接写为：
 
 ```cpp
