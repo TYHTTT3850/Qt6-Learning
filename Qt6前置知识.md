@@ -27,7 +27,17 @@
 
 ### `connect()` 函数
 
-信号与槽关联是用函数 `QObject::connect()` 实现的，使用函数 `connect()` 的基本格式如下：
+信号与槽关联是用函数 `QObject::connect()` 实现的，connect()有一种成员函数形式，还有多种静态函数形式。一般使用静态函数形式。
+
+静态函数QObject::connect()有多种参数形式，其中一种参数形式的函数原型是：
+
+```cpp
+
+QMetaObject::Connection QObject::connect(const QObject *sender, const char *signal, const QObject *receiver, const char *method, Qt::ConnectionType type = Qt::AutoConnection)
+
+```
+
+使用这种参数形式的connect()函数进行信号与槽函数的连接时，一般用法如下：
 
 ```cpp
 
