@@ -30,7 +30,11 @@
 
 信号与槽关联是用函数 `QObject::connect()` 实现的，`connect()` 有一种成员函数形式，还有多种静态函数形式。一般使用静态函数形式。
 
-静态函数 `QObject::connect()` 有多种参数形式，其中一种参数形式的函数原型是：
+静态函数 `QObject::connect()` 有多种参数形式。
+
+1、第一种参数形式的静态函数 `connect()`
+
+函数原型为：
 
 ```cpp
 
@@ -57,7 +61,10 @@ connect(sender, SIGNAL(signal()), receiver, SLOT(slot()));
 
 其中，`sender` 是发射信号的对象的名称；`signal()` 是信号，有参数时还需要指明各参数类型，但不用指明参数名称；`receiver` 是接收信号的对象的名称；`slot()` 是槽函数，有参数时还需要指明各参数类型，但不用指明参数名称。`SIGNAL` 和 `SLOT` 是 Qt 的宏，分别用于指明信号和槽函数。
 
-另一种参数形式的静态函数 `QObject::connect()` 的原型是：
+2、第二种参数形式的静态函数 `connect()`
+
+函数原型为：
+
 ```cpp
 
 static QMetaObject::Connection QObject::connect(const QObject *sender, const QMetaMethod &signal, const QObject *receiver, const QMetaMethod &method, Qt::ConnectionType type = Qt::AutoConnection);
