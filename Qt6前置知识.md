@@ -79,7 +79,9 @@ connect(sender, &signal, receiver, &slot);
 
 ```
 
-不管是哪种参数形式的 `connect()` 函数，最后都有一个参数 `type` ，它是枚举类型 `Qt::ConnectionType` ，
+#### 连接方式 `Qt::ConnectionType`
+
+不管是哪种参数形式的静态 `connect()` 函数，最后都有一个参数 `type` ，它是枚举类型 `Qt::ConnectionType` ，
 默认值为 `Qt::AutoConnection` 。枚举类型 `Qt::ConnectionType` 表示信号与槽的关联方式， 有以下几种取值：
 
 1、 `Qt::AutoConnection` (默认值)：如果信号的接收者与发射者在同一个线程中，就使用 `Qt::DirectConnection` 方式，否则使用 `Qt::QueuedConnection` 方式，在信号发射时自动确定关联方式。
@@ -91,7 +93,9 @@ connect(sender, &signal, receiver, &slot);
 4、`Qt::BlockingQueuedConnection` ：与 `Qt::QueuedConnection` 相似，区别是信号线程会阻塞，
 直到槽函数运行完毕。当信号与槽函数在同一个线程中时绝对不能使用这种方式，否则会造成死锁。
 
-还有一个作为 QObject 成员函数的 `connect()` ，其函数原型定义如下：
+#### 作为 QObject 成员函数的 `connect()` 函数 
+
+函数原型定义如下：
 
 ```cpp
 
