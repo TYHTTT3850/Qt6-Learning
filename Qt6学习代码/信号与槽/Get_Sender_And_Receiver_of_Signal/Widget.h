@@ -15,7 +15,10 @@ public:
     }
     private slots:
         void onButtonClicked() {
-        QPushButton *button = qobject_cast<QPushButton*>(sender()); //利用sender()获取信号发射者，qobject_cast是专门为 qt 对象设计的类型转换的函数模板
+        QPushButton *button = qobject_cast<QPushButton*>(sender()); //利用sender()获取信号发射者。
+        //qobject_cast是专门为 Qt 对象设计的类型转换的函数模板
+
+        //qDebug()是专门为 Qt 设计的输出调试信息的方法。
         qDebug() << "Sender:" << button->objectName();
     }
 
