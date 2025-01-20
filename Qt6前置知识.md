@@ -59,7 +59,7 @@ connect(sender, SIGNAL(signal()), receiver, SLOT(slot()));
 
 ```
 
-其中，`sender` 是发射信号的对象的名称；`signal()` 是属于 `sender` 的信号，有参数时还需要指明各参数类型，但不用指明参数名称；`receiver` 是接收信号的对象的名称；`slot()` 是属于 `receiver` 的槽函数，有参数时还需要指明各参数类型，但不用指明参数名称。`SIGNAL` 和 `SLOT` 是 Qt 的宏，分别用于指明信号和槽函数。
+其中，`sender` 是发射信号的对象的名称，`signal()` 是属于 `sender` 的信号，有参数时还需要指明各参数类型，但不用指明参数名称；`receiver` 是接收信号的对象的名称，`slot()` 是属于 `receiver` 的槽函数，有参数时还需要指明各参数类型，但不用指明参数名称。`SIGNAL` 和 `SLOT` 是 Qt 的宏，分别用于指明信号和槽函数。
 
 **2、第二种参数形式的静态函数 `connect()`**
 
@@ -78,6 +78,8 @@ static QMetaObject::Connection QObject::connect(const QObject *sender, const QMe
 connect(sender, &signal, receiver, &slot);
 
 ```
+
+同样的，`sender` 是发射信号的对象的名称，`signal` 是属于 `sender` 的信号；`receiver` 是接收信号的对象的名称，`slot` 是属于 `receiver` 的槽函数。
 
 #### 连接方式 `Qt::ConnectionType`
 
