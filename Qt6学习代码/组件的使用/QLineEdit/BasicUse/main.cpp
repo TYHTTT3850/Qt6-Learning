@@ -1,5 +1,4 @@
 #include <QApplication>
-
 #include "UIFile/Widget.h"
 
 
