@@ -1,16 +1,10 @@
-/********************************************************************************
-** Form generated from reading UI file 'Widget.ui'
-**
-** Created by: Qt User Interface Compiler version 6.8.0
-**
-** WARNING! All changes made in this file will be lost when recompiling UI file!
-********************************************************************************/
-
 #ifndef UI_WIDGET_H
 #define UI_WIDGET_H
 
 #include <QtCore/QVariant>
 #include <QtWidgets/QApplication>
+
+// QLineEdit 是一个单行纯文本编辑控件，可以用于输入和显示单行纯文本
 #include <QtWidgets/QLineEdit>
 #include <QtWidgets/QWidget>
 
