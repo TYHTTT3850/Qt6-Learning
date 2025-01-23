@@ -3,6 +3,7 @@
 #include "Caculator.h"
 #include "ui_Caculator.h"
 #include "exprtk.hpp" //表达式解析库，下载地址https://github.com/ArashPartow/exprtk.git，下载后直接放入项目中即可使用
+//加入 exprtk.hpp 后编译的文件太大，故使用 MSVC 编译，同时在 CMake 中加入 /bigobj 指令
 #include <iostream>
 
 
