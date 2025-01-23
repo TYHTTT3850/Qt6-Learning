@@ -2,7 +2,7 @@
 #include <QString>
 #include "Caculator.h"
 #include "ui_Caculator.h"
-#include "exprtk.hpp" //表达式解析库，下载地址https://github.com/ArashPartow/exprtk.git
+#include "exprtk.hpp" //表达式解析库，下载地址https://github.com/ArashPartow/exprtk.git，下载后直接放入项目中即可使用
 #include <iostream>
 
 
