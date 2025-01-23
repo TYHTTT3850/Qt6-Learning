@@ -11,7 +11,7 @@ D:\Qt\6.8.0\mingw_64\bin
 D:\Qt\Tools\mingw1310_64\bin
 ```
 
-## 配置 CLion 工具链(MinGW)
+# 配置 CLion 工具链(MinGW)
 
 在 `设置->构建、执行、部署->工具链` 中创建新的基于 `MinGW` 的 Qt6 工具链。
 
@@ -69,7 +69,7 @@ D:\Qt\6.8.0\mingw_64\bin\uic.exe
 
 ## 创建Qt6项目
 
-在 CLion 中创建新的项目，选择 `Qt微件可执行文件(Qt Widgets Executable)`，Qt版本选择6，C++版本选择17。
+在 CLion 中创建新的项目，选择 `Qt微件可执行文件(Qt Widgets Executable)`，Qt版本选择6，C++标准选择17。
 
 `Qt CMake 前缀路径`填入版本号文件夹下的 `MinGW` 工具。例如：
 
@@ -81,7 +81,11 @@ D:\Qt\6.8.0\mingw_64
 
 综上所述，在 CLion 下的 Qt6 开发环境已配置完成，可以用于开发。
 
-## 命名规范
+# 配置 CLion 工具链(MSVC)
+
+大致步骤与配置 MinGW 一样。
+
+# 命名规范
 
 类名：首字母大写，单词和单词之间首字母大写。
 
