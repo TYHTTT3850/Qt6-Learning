@@ -2,16 +2,20 @@
 
 基于 Clion 的 Qt 6 开发环境配置
 
+# MinGW 编译器
+
+在 Qt6 的官方安装工具中下载 MinGW 编译器，版本号目录下的和 Build Tools 目录下的都要下载。
+
 ## 系统变量的配置
 
-进入 Qt6 安装目录，将版本号文件夹和Tools文件夹下的 `MinGW` 工具添加进环境变量，如下所示：
+进入 Qt6 安装目录，将版本号文件夹和 Tools 文件夹下的 `MinGW` 工具添加进环境变量，如下所示：
 
 ```
 D:\Qt\6.8.0\mingw_64\bin
 D:\Qt\Tools\mingw1310_64\bin
 ```
 
-# 配置 CLion 工具链(MinGW)
+## 配置 MinGW 工具链
 
 在 `设置->构建、执行、部署->工具链` 中创建新的基于 `MinGW` 的 Qt6 工具链。
 
@@ -26,7 +30,7 @@ D:\Qt\Tools\mingw1310_64
 `CMake` 中填入 Tools 目录下的 `CMake` 工具。例如：
 
 ```
-D:\Qt\Tools\CMake_64\bin\cmake.exe
+D:\Qt\Tools\cmake\bin\cmake.exe
 ```
 
 其他可以不用改。
@@ -77,13 +81,54 @@ D:\Qt\6.8.0\mingw_64\bin\uic.exe
 D:\Qt\6.8.0\mingw_64
 ```
 
-在 `设置->构建、执行、部署-> CMake ` 中将新创建的 Qt6 项目选择之前新创建的基于 `MinGW` 的 Qt6 工具链 `MinGW_Qt`。
+在 `设置->构建、执行、部署-> CMake ` 中为新创建的 Qt6 项目选择工具链 `MinGW_Qt`。
 
 综上所述，在 CLion 下的 Qt6 开发环境已配置完成，可以用于开发。
 
-# 配置 CLion 工具链(MSVC)
+# MSVC 编译器
 
-大致步骤与配置 MinGW 一样。
+大致步骤与配置 MinGW 一样。不过 Qt6 的 Tools 目录不提供 MSVC 。所以相较于 MinGW 的配置，MSVC 会简单许多。
+
+从官网下载 Visual Studio，安装后得到 Visual Studio Installer。
+
+选择 `单个组件` ，找到 MSVC 编译器和 Windows SDK，下载最新的版本即可。
+
+## 配置 MSVC 工具链
+
+在 `设置->构建、执行、部署->工具链` 中创建新的基于 `Visual Studio` 的 Qt6 工具链。
+
+`工具集` 填入 Visual Studio 的具体安装路径。例如：
+
+```
+D:\Microsoft Visual Studio\2022\Enterprise
+```
+CLion 会自动扫描并检测。
+
+架构根据电脑具体配置选择，这里选择 `amd64`。其他都可以不更改。
+
+## 配置外部工具
+
+步骤与配置 MinGW 相似。仅需改变 `Qt Designer` 和 `UIC` 两个工具的 exe 文件路径。例如：
+
+```
+D:\Qt\6.8.0\msvc2022_64\bin\designer.exe
+```
+```
+D:\Qt\6.8.0\msvc2022_64\bin\uic.exe
+```
+其他设置都一样。
+
+## 创建Qt6项目
+
+步骤与配置 MinGW 相似。唯一需要改变的就是 Qt CMake 前缀路径。
+
+`Qt CMake 前缀路径`填入版本号文件夹下的 `MSVC` 工具。例如：
+
+```
+D:/Qt/6.8.0/msvc2022_64
+```
+
+同样在 `设置->构建、执行、部署-> CMake ` 中为新创建的 Qt6 项目选择 `Visual Studio` 工具链。
 
 # 命名规范
 
